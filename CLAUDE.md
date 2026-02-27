@@ -1,13 +1,23 @@
 # homebrew-tap
 
-schroneko/homebrew-tap - NiceVoice を Homebrew Cask で配布するための tap リポジトリ。
+schroneko/homebrew-tap - castkit と NiceVoice を Homebrew で配布するための tap リポジトリ。
 
 ## 構成
 
+- `Formula/castkit.rb` - castkit の Formula 定義 (PyPI sdist からビルド)
 - `Casks/nicevoice.rb` - NiceVoice の Cask 定義
 - GitHub Release に ZIP バイナリを格納 (nicevoice-app はプライベートのため)
 
-## バージョン更新手順
+## castkit バージョン更新手順
+
+1. castkit の新バージョンを PyPI に公開 (`uv build` + `uv publish`)
+2. PyPI の sdist URL と SHA256 を取得
+3. `Formula/castkit.rb` の `url` と `sha256` を更新
+4. resource stanzas の依存パッケージも必要に応じて更新
+5. コミットして push
+6. 動作確認: `brew upgrade schroneko/tap/castkit`
+
+## NiceVoice バージョン更新手順
 
 1. nicevoice-app 側で新バージョンをビルドして ZIP を作成
 2. ZIP の SHA256 を取得: `shasum -a 256 /path/to/NiceVoice-X.Y.Z.zip`
