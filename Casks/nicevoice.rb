@@ -1,6 +1,6 @@
 cask "nicevoice" do
-  version "0.1.3"
-  sha256 "d01276330671fde1173510004dd96c3bf2caa63bf3deab99e80bd4fb5586d037"
+  version "0.1.4"
+  sha256 "fb1490be68d09aef1a581dc1e1dc3cc594acae83602b5e5b5f3cab40f2a18149"
 
   url "https://github.com/schroneko/homebrew-tap/releases/download/v#{version}/NiceVoice-#{version}.zip"
   name "NiceVoice"
